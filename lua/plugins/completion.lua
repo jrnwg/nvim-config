@@ -3,7 +3,19 @@ return {
     "saghen/blink.cmp",
     version = "*",
     opts = {
-      keymap = { preset = "default" },
+      keymap = {
+        preset = "default",
+        ["<Tab>"] = {
+          function(cmp)
+            -- First: Try sidekick next edit suggestion
+            if require("sidekick").nes_jump_or_apply() then
+              return true
+            end
+          end,
+          "snippet_forward", -- Second: Snippet navigation
+          "fallback", -- Third: Normal tab
+        },
+      },
       sources = {
         default = { "lsp", "path", "buffer" },
         providers = {

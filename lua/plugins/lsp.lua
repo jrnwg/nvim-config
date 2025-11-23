@@ -17,6 +17,9 @@ return {
       vim.lsp.enable("pyright")
       vim.lsp.enable("ruff")
 
+      -- Enable GitHub Copilot LSP (provided by copilot.lua plugin)
+      vim.lsp.enable("copilot")
+
       -- LSP Keymaps (only set when LSP attaches)
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
