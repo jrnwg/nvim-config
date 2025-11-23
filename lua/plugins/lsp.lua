@@ -5,6 +5,18 @@ return {
       -- Enable lua_ls
       vim.lsp.enable("lua_ls")
 
+      -- Configure Python LSP servers
+      vim.lsp.config("pyright", {
+        settings = {
+          pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+          },
+        },
+      })
+      vim.lsp.enable("pyright")
+      vim.lsp.enable("ruff")
+
       -- LSP Keymaps (only set when LSP attaches)
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
@@ -19,6 +31,12 @@ return {
           map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
           map("<leader>rn", vim.lsp.buf.rename, "Rename")
           map("<leader>f", vim.lsp.buf.format, "Format Document")
+
+          -- Disable hover for Ruff (let Pyright handle it)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client.name == "ruff" then
+            client.server_capabilities.hoverProvider = false
+          end
         end,
       })
     end,
