@@ -5,6 +5,7 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "88"
 vim.opt.termguicolors = true
+vim.opt.showtabline = 0 -- Never show tabs
 
 -- Editing
 vim.opt.wrap = false

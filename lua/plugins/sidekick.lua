@@ -13,16 +13,19 @@ return {
     },
     keys = {
       {
+        -- Only map <Tab> in NORMAL mode so Insert-mode Tab behavior (indentation / completion) is not blocked
         "<tab>",
         function()
           -- if there is a next edit, jump to it, otherwise apply it if any
-          if not require("sidekick").nes_jump_or_apply() then
-            return "<Tab>" -- fallback to normal tab
+          if require("sidekick").nes_jump_or_apply() then
+            return "" -- sidekick handled it; do nothing else
           end
+          -- fallback: let normal mode <Tab> behave as usual
+          return "<Tab>"
         end,
         expr = true,
         desc = "Goto/Apply Next Edit Suggestion",
-        mode = { "i", "n" },
+        mode = { "n" },
       },
       {
         "<leader>aa",
@@ -55,13 +58,7 @@ return {
         mode = { "x", "n" },
         desc = "Send This",
       },
-      {
-        "<leader>af",
-        function()
-          require("sidekick.cli").send({ msg = "{file}" })
-        end,
-        desc = "Send File",
-      },
+      { "<leader>af", function() require("sidekick.cli").send({ msg = "{file}" }) end, desc = "Send File" },
       {
         "<leader>av",
         function()

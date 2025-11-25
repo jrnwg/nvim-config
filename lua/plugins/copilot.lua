@@ -4,8 +4,8 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
-      suggestion = { enabled = false }, -- Using blink.cmp instead
-      panel = { enabled = false }, -- Using sidekick.nvim instead
+      suggestion = { enabled = false },
+      panel = { enabled = false },
       filetypes = {
         yaml = false,
         markdown = true,
