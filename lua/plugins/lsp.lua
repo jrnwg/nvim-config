@@ -17,6 +17,9 @@ return {
       vim.lsp.enable("pyright")
       vim.lsp.enable("ruff")
 
+      -- Configure TypeScript/JavaScript LSP
+      vim.lsp.enable("ts_ls")
+
       -- Enable GitHub Copilot LSP (provided by copilot.lua plugin)
       vim.lsp.enable("copilot")
 
