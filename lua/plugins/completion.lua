@@ -8,8 +8,13 @@ return {
     opts = {
       keymap = {
         preset = "enter", -- Enables <CR> to accept completions
-        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+        ["<Tab>"] = { "accept", "fallback" },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<C-f>"] = { "snippet_forward", "fallback" },
+        ["<C-b>"] = { "snippet_backward", "fallback" },
       },
       sources = {
         default = { "lsp", "path", "buffer", "copilot" },
