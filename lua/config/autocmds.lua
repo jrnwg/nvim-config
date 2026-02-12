@@ -17,15 +17,3 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
-
--- Format on write using LSP formatting (falls back to client selection inside function)
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("lsp-format-on-save", { clear = true }),
-  callback = function()
-    -- Call the buffer-local LSP formatting function if available
-    local ok, _ = pcall(vim.lsp.buf.format, { async = false })
-    if not ok then
-      -- fallback: try snooping other formatters (no-op)
-    end
-  end,
-})

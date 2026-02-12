@@ -6,6 +6,12 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "88"
 vim.opt.termguicolors = true
 vim.opt.showtabline = 0 -- Never show tabs
+vim.opt.showmode = false
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 -- Editing
 vim.opt.wrap = false
@@ -24,3 +30,10 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.autoread = true
 vim.opt.autowrite = false
+
+vim.opt.wildmode = { "list", "full" }
+
+-- Floating windows
+vim.diagnostic.config({
+  float = { border = "rounded" },
+})

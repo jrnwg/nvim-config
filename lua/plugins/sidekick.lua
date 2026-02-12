@@ -7,7 +7,7 @@ return {
     opts = {
       -- Minimal NES configuration
       nes = {
-        enabled = true,
+        enabled = false,
         debounce = 100,
       },
     },
@@ -58,7 +58,13 @@ return {
         mode = { "x", "n" },
         desc = "Send This",
       },
-      { "<leader>af", function() require("sidekick.cli").send({ msg = "{file}" }) end, desc = "Send File" },
+      {
+        "<leader>af",
+        function()
+          require("sidekick.cli").send({ msg = "{file}" })
+        end,
+        desc = "Send File",
+      },
       {
         "<leader>av",
         function()

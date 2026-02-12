@@ -4,7 +4,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       -- Disable conform's automatic format-on-save so we use LSP formatting on save
-      format_on_save = false,
+      format_on_save = true,
       formatters_by_ft = {
         lua = { "stylua" },
         python = {
@@ -12,6 +12,7 @@ return {
           "ruff_format",
           "ruff_organize_imports",
         },
+        rust = { "rustfmt" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         typescript = { "prettier" },
