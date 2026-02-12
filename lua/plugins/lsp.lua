@@ -20,6 +20,7 @@ return {
 
       -- Configure Python LSP servers
       vim.lsp.config("pyright", {
+        root_markers = { ".venv" },
         settings = {
           pyright = {
             -- Using Ruff's import organizer
@@ -37,9 +38,16 @@ return {
         },
       })
       vim.lsp.enable("pyright")
+
+      vim.lsp.config("ruff", {
+        root_markers = { ".venv" },
+      })
       vim.lsp.enable("ruff")
 
       -- Configure TypeScript/JavaScript LSP
+      vim.lsp.config("ts_ls", {
+        root_markers = { "tsconfig.base.json", "nx.json", "package.json" },
+      })
       vim.lsp.enable("ts_ls")
 
       -- Configure Rust LSP
