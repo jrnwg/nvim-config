@@ -9,11 +9,14 @@ return {
     },
     picker = {},
     lazygit = {
-      configure = true,
+      configure = false,
       win = {
         width = 0,
         height = 0,
         backdrop = false,
+        wo = {
+          winhighlight = "Normal:Normal,FloatBorder:Normal",
+        },
       },
     },
   },
