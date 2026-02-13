@@ -7,11 +7,7 @@ return {
     indent = {
       animate = { enabled = false },
     },
-    picker = {
-      preset = "default",
-      width = 0.95,
-      height = 0.95,
-    },
+    picker = {},
     lazygit = {
       configure = true,
       win = {
