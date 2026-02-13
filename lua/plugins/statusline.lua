@@ -11,12 +11,12 @@ return {
       sections = {
         lualine_c = {
           {
-            'filename',
+            "filename",
             file_status = true,
             newfile_status = false,
             path = 1,
             shorting_target = 40,
-          }
+          },
         },
       },
     },

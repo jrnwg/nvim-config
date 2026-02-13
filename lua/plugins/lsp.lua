@@ -77,7 +77,7 @@ return {
           -- map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
           -- map("<leader>rn", vim.lsp.buf.rename, "Rename")
           map("grn", vim.lsp.buf.rename, "Rename")
-          map("<leader>f", vim.lsp.buf.format, "Format Document")
+          -- map("<leader>F", vim.lsp.buf.format, "Format with LSP")
 
           -- Disable hover for Ruff (let Pyright handle it)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -93,6 +93,7 @@ return {
     ft = "lua",
     opts = {
       library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         { path = "snacks.nvim", words = { "Snacks" } },
       },
       integrations = {

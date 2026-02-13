@@ -21,6 +21,7 @@ return {
     },
   },
   keys = {
+    -- stylua: ignore start
     -- Git Lazygit
     { "<leader>gg",      function() Snacks.lazygit() end,                                        desc = "Lazygit" },
     { "<leader>gF",      function() Snacks.lazygit.log_file() end,                               desc = "Lazygit Current File History" },
@@ -88,5 +89,6 @@ return {
     { "gao",             function() Snacks.picker.lsp_outgoing_calls() end,                      desc = "C[a]lls Outgoing" },
     { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
+    -- stylua: ignore end
   },
 }

@@ -7,7 +7,20 @@ return {
     })
   end,
   keys = {
-    { "<leader>rr", function() require("kulala").run() end,         desc = "Run Request" },
-    { "<leader>rt", function() require("kulala").toggle_view() end, desc = "Toggle Headers/Body" },
+    {
+      "<leader>rr",
+      function()
+        require("kulala").run()
+      end,
+      desc = "Run Request",
+    },
+
+    {
+      "<leader>rt",
+      function()
+        require("kulala").toggle_view()
+      end,
+      desc = "Toggle Headers/Body",
+    },
   },
 }
