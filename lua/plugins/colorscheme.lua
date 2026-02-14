@@ -3,9 +3,6 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    -- config = function()
-    --   vim.cmd("colorscheme tokyonight")
-    -- end,
   },
   {
     "zenbones-theme/zenbones.nvim",
@@ -14,8 +11,21 @@ return {
     priority = 1000,
     config = function()
       vim.g.zenbones__lightness = "dim"
-
-      vim.cmd.colorscheme("zenbones")
     end,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "AlexvZyl/nordic.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "rmehri01/onenord.nvim",
+    lazy = false,
+    priority = 1000,
   },
 }

@@ -4,6 +4,8 @@ require("config.keymaps")
 require("core.lazy")
 require("config.autocmds")
 
+vim.cmd("colorscheme nordic")
+
 require("core.tmux").setup({
   sync_status_line = true,
   tmux_colors_path = "~/.config/tmux/colors.conf",
