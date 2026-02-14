@@ -20,6 +20,16 @@ return {
         vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
     end,
     config = function()
+      -- Configure lua_ls
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            workspace = {
+              library = { vim.env.VIMRUNTIME },
+            },
+          },
+        },
+      })
       vim.lsp.enable("lua_ls")
 
       vim.lsp.config("pyright", {
