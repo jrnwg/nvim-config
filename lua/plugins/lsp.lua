@@ -1,5 +1,15 @@
 return {
   {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = "snacks.nvim", words = { "Snacks" } },
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     init = function()
       -- Configure LSP floating windows with rounded borders
@@ -10,10 +20,8 @@ return {
         vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
     end,
     config = function()
-      -- Enable lua_ls
       vim.lsp.enable("lua_ls")
 
-      -- Configure Python LSP servers
       vim.lsp.config("pyright", {
         root_markers = { ".venv" },
         settings = {
@@ -39,13 +47,11 @@ return {
       })
       vim.lsp.enable("ruff")
 
-      -- Configure TypeScript/JavaScript LSP
       vim.lsp.config("ts_ls", {
         root_markers = { "tsconfig.base.json", "nx.json", "package.json" },
       })
       vim.lsp.enable("ts_ls")
 
-      -- Configure Rust LSP
       vim.lsp.config("rust_analyzer", {
         settings = {
           ["rust-analyzer"] = {
@@ -60,24 +66,16 @@ return {
       })
       vim.lsp.enable("rust_analyzer")
 
-      -- Enable GitHub Copilot LSP (provided by copilot.lua plugin)
       vim.lsp.enable("copilot")
 
-      -- LSP Keymaps (only set when LSP attaches)
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local map = function(keys, func, desc)
             vim.keymap.set("n", keys, func, { buffer = args.buf, desc = "LSP: " .. desc })
           end
 
-          -- Essential LSP mappings
-          -- map("gd", vim.lsp.buf.definition, "Go to Definition")
-          -- map("gr", vim.lsp.buf.references, "Go to References")
           map("K", vim.lsp.buf.hover, "Hover Documentation")
-          -- map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-          -- map("<leader>rn", vim.lsp.buf.rename, "Rename")
           map("grn", vim.lsp.buf.rename, "Rename")
-          -- map("<leader>F", vim.lsp.buf.format, "Format with LSP")
 
           -- Disable hover for Ruff (let Pyright handle it)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -87,18 +85,5 @@ return {
         end,
       })
     end,
-  },
-  {
-    "folke/lazydev.nvim",
-    ft = "lua",
-    opts = {
-      library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "snacks.nvim", words = { "Snacks" } },
-      },
-      integrations = {
-        blink = true,
-      },
-    },
   },
 }
