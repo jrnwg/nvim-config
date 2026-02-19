@@ -86,6 +86,7 @@ return {
 
           map("K", vim.lsp.buf.hover, "Hover Documentation")
           map("grn", vim.lsp.buf.rename, "Rename")
+          map("<leader>lf", vim.lsp.buf.format, "Lsp format")
 
           -- Disable hover for Ruff (let Pyright handle it)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
