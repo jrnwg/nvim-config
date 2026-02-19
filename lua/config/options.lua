@@ -7,6 +7,7 @@ vim.opt.colorcolumn = "120"
 vim.opt.termguicolors = true
 vim.opt.showtabline = 0 -- Never show tabs
 vim.opt.showmode = false
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block-blinkon0"
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
