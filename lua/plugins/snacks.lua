@@ -13,9 +13,15 @@ return {
       win = {
         width = 0,
         height = 0,
-        backdrop = false,
+      },
+    },
+    terminal = {
+      win = {
+        position = "float",
+        width = 0,
+        height = 0,
         wo = {
-          winhighlight = "Normal:Normal,FloatBorder:Normal",
+          winhighlight = "Normal:Normal",
         },
       },
     },
@@ -52,6 +58,7 @@ return {
     -- { "<leader>gI",      function() Snacks.picker.gh_issue({ state = "all" }) end,               desc = "GitHub Issues (all)" },
     -- { "<leader>gp",      function() Snacks.picker.gh_pr() end,                                   desc = "GitHub Pull Requests (open)" },
     -- { "<leader>gP",      function() Snacks.picker.gh_pr({ state = "all" }) end,                  desc = "GitHub Pull Requests (all)" },
+    { "<M-/>", function() Snacks.terminal() end, mode = { "n", "t" }, desc = "Toggle terminal" },
     -- Grep
     { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
     { "<leader>sB",      function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
